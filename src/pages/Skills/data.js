@@ -1,4 +1,6 @@
-export default {
+
+
+export const data = {
   skills:[
     {
       name:'React',
