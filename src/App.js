@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Skills from './pages/Skills';
 import Projects from './pages/Projects';
+import Default from './pages/Default';
 
 //components
 import Footer from './components/Footer';
@@ -66,6 +67,7 @@ const App = () => {
           <Route path="/about" component={About}/>
           <Route path="/skills" component={Skills}/>
           <Route path="/projects" component={Projects}/>
+          <Route component={Default}/>
         </Switch>
         <Footer/>
       </BrowserRouter>

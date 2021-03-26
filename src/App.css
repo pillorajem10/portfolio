@@ -197,9 +197,28 @@
 
 
 
+
+/* default page */
+
+.default-container {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  font-size: 3.5rem;
+  margin: 2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* end of default page */
+
+
+
+
+
+
 /* media queries */
-
-
 @media only screen and (max-width: 1328px) {
   .home-left-container {
      justify-content: center;
@@ -251,4 +270,4 @@
     width: 7rem;
   }
 }
-/* end of media  */
+/* end of media queries */
