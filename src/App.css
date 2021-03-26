@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* container */
+.main-container  {
+  height: 100%;
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.page-title {
+  font-size: 2rem;
+}
+/* end of container */
+
+
+
+
+
+
+
+/* navigation bar */
+.navbar-ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.navbar-li a {
+  display: block;
+  color: white;
+  text-align: center;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  text-decoration: none;
+  float: left;
+}
+
+.navbar-li {
+  float: left;
+}
+
+.navbar-li img {
+  width: 15rem;
+}
+
+.web-logo {
+  width: 15rem;
+}
+/* end of navigation bar */
+
+
+
+
+
+
+
+/* home page */
+.home-left-container {
+  width: 45rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+}
+
+.home-right-container {
+  width: 40rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  display: flex;
+  margin-bottom: 5rem;
+  padding: 0;
+  text-align: center;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: column;
+}
+
+.home-right-container a {
+  text-decoration: none;
+}
+/* end of home page */
+
+
+
+
+
+
+
+/* footer */
+.footer {
   color: white;
+  background: #2E2E2E;
+  height: 3rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* end of footer */
