@@ -3,12 +3,16 @@
   height: 100%;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: stretch;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .page-title {
+  font-size: 3rem;
+}
+
+.container-title {
   font-size: 2rem;
 }
 /* end of container */
@@ -58,25 +62,23 @@
 
 /* home page */
 .home-left-container {
-  width: 45rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 40rem;
+  background-color: rgba(0, 0, 0, 0.6);
   font-size: 1.5rem;
-  margin-top: 1rem;
-  margin-bottom: 5rem;
+  margin: 2rem;
   padding: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
 }
 
 .home-right-container {
-  width: 40rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 35rem;
+  background-color: rgba(0, 0, 0, 0.6);
   font-size: 1.5rem;
-  margin-top: 1rem;
   display: flex;
-  margin-bottom: 5rem;
+  margin: 2rem;
   padding: 0;
   text-align: center;
   align-items: center;
@@ -94,12 +96,90 @@
 
 
 
+/* about page */
+.about-container {
+  width: 50rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 1.5rem;
+  display: flex;
+  margin: 2rem;
+  padding: 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+/* end of about page*/
+
+
+
+
+
+
+
+/* projects page */
+
+.project-container {
+  width: 30rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 1.5rem;
+  display: flex;
+  margin: 2rem;
+  padding: 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.project-container a {
+  text-decoration: none;
+}
+
+.project-image {
+  object-fit: cover;
+  width:20rem
+}
+
+.image-bg {
+  background: white;
+}
+
+/* end of project page */
+
+
+
+
+
+
+/* skills page*/
+ .skills-container {
+   width: 15rem;
+   background-color: rgba(0, 0, 0, 0.6);
+   font-size: 1.5rem;
+   display: flex;
+   margin: 1rem;
+   padding: 0;
+   text-align: center;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+ }
+
+ .skills-container img{
+   width: 10rem;
+   margin: 2rem;
+ }
+/*  end of skill page  */
+
+
+
 
 /* footer */
 .footer {
   color: white;
   background: #2E2E2E;
-  height: 3rem;
+  height: 2.5rem;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -110,3 +190,65 @@
   text-align: center;
 }
 /* end of footer */
+
+
+
+
+
+
+
+/* media queries */
+
+
+@media only screen and (max-width: 1328px) {
+  .home-left-container {
+     justify-content: center;
+     text-align: center;
+     align-items: center;
+  }
+}
+
+@media only screen and (min-width: 665px) and (max-width: 781px) {
+  .page-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 664px) {
+  .page-title {
+    font-size: 2rem;
+  }
+  .container-title {
+    font-size: 1.5rem;
+  }
+  .home-left-container {
+    font-size: 1.2rem;
+  }
+  .project-container {
+    font-size: 1.2rem;
+  }
+  .about-container {
+    font-size: 1.2rem;
+  }
+  .skills-container {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 384px) and (max-width: 543px) {
+  .skills-container {
+    width: 10rem;
+  }
+}
+
+@media only screen and (max-width: 383px) {
+  .skills-container {
+    width: 9rem;
+    height: 15rem;
+  }
+
+  .skills-container img {
+    width: 7rem;
+  }
+}
+/* end of media  */

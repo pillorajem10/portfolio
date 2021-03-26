@@ -5,7 +5,7 @@ import Animation from 'aos';
 import 'aos/dist/aos.css';
 
 //material-ui
-import { Button, useMediaQuery, withStyles } from '@material-ui/core';
+import { Button, withStyles } from '@material-ui/core';
 
 // material-ui icons
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -22,14 +22,13 @@ const styles = {
     marginBottom: '1rem',
     color: 'white',
     height: 48,
-    width: '20rem',
+    width: '15rem',
     padding: 0,
   },
 };
 
 const Page = (props) => {
   const { classes } = props;
-  const lowResolution = useMediaQuery('(max-width: 1359px)');
 
   useEffect(() => {
     Animation.init({ duartion: 1000 });
@@ -38,79 +37,38 @@ const Page = (props) => {
   return (
     <>
       <div className="main-container">
-        { lowResolution ?
-          <>
-            <div data-aos="zoom-in" className="home-left-container">
-              <p className="page-title">Welcome! My name is Jem Pillora</p>
-              <p>Full-stack developer</p>
-              <p>
-                I am a web developer capable of generating and amplifying websites towards my clients satisfaction.
-                I aim towards producing web pages that could bring out the leading aspects of my clients company.
-                The technologies I have worked with and mastered are indicated in the skills page of this site.
-              </p>
-            </div>
-            <div data-aos="zoom-in" className="home-right-container">
-              <div className="page-title">You can check my profile and message me</div>
-              <a href="https://github.com/pillorajem10" target="_blank" rel="noreferrer">
-                <Button startIcon={<GitHubIcon/>} className={classes.root}>
-                  Github
-                </Button>
-              </a>
-              <a href="https://www.facebook.com/pillorajem7" target="_blank" rel="noreferrer">
-                <Button startIcon={<FacebookIcon/>} className={classes.root}>
-                  facebook
-                </Button>
-              </a>
-              <a href="https://www.linkedin.com/in/jem-pillora-a18794200/" target="_blank" rel="noreferrer">
-                <Button startIcon={<LinkedInIcon/>} className={classes.root}>
-                  Linked-in
-                </Button>
-              </a>
-              <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSKkHgCMpDgvnKpvWRWVjjRGRsdqCTxtPkHlZJrjHnVzWRRSMNwrQKlTdpdZFvzKjxwxBSNw" target="_blank" rel="noreferrer">
-                <Button startIcon={<EmailIcon/>} className={classes.root}>
-                  gmail
-                </Button>
-              </a>
-            </div>
-          </>
-
-          :
-
-          <>
-            <div data-aos="fade-right" className="home-left-container">
-              <p className="page-title">Welcome! My name is Jem Pillora</p>
-              <p>Full-stack developer</p>
-              <p>
-                I am a web developer capable of generating and amplifying websites towards my clients satisfaction.
-                I aim towards producing web pages that could bring out the leading aspects of my clients company.
-                The technologies I have worked with and mastered are indicated in the skills page of this site.
-              </p>
-            </div>
-            <div data-aos="fade-left" className="home-right-container">
-              <div className="page-title">You can check my profile and message me</div>
-              <a href="https://github.com/pillorajem10" target="_blank" rel="noreferrer">
-                <Button startIcon={<GitHubIcon/>} className={classes.root}>
-                  Github
-                </Button>
-              </a>
-              <a href="https://www.facebook.com/pillorajem7" target="_blank" rel="noreferrer">
-                <Button startIcon={<FacebookIcon/>} className={classes.root}>
-                  facebook
-                </Button>
-              </a>
-              <a href="https://www.linkedin.com/in/jem-pillora-a18794200/" target="_blank" rel="noreferrer">
-                <Button startIcon={<LinkedInIcon/>} className={classes.root}>
-                  Linked-in
-                </Button>
-              </a>
-              <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSKkHgCMpDgvnKpvWRWVjjRGRsdqCTxtPkHlZJrjHnVzWRRSMNwrQKlTdpdZFvzKjxwxBSNw" target="_blank" rel="noreferrer">
-                <Button startIcon={<EmailIcon/>} className={classes.root}>
-                  gmail
-                </Button>
-              </a>
-            </div>
-          </>
-        }
+        <div data-aos="zoom-in" className="home-left-container">
+          <p className="page-title">Hi! My name is Jem Pillora</p>
+          <p>Full-stack developer</p>
+          <p>
+            I am a web developer capable of generating and amplifying websites towards my clients satisfaction.
+            I aim towards producing web pages that could bring out the leading aspects of my clients company.
+            The technologies I have worked with and mastered are indicated in the skills page of this site.
+          </p>
+        </div>
+        <div data-aos="zoom-in" className="home-right-container">
+          <p className="container-title">Visit my social media accounts</p>
+          <a href="https://github.com/pillorajem10" target="_blank" rel="noreferrer">
+            <Button startIcon={<GitHubIcon/>} className={classes.root}>
+              Github
+            </Button>
+          </a>
+          <a href="https://www.facebook.com/pillorajem7" target="_blank" rel="noreferrer">
+            <Button startIcon={<FacebookIcon/>} className={classes.root}>
+              facebook
+            </Button>
+          </a>
+          <a href="https://www.linkedin.com/in/jem-pillora-a18794200/" target="_blank" rel="noreferrer">
+            <Button startIcon={<LinkedInIcon/>} className={classes.root}>
+              Linked-in
+            </Button>
+          </a>
+          <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSKkHgCMpDgvnKpvWRWVjjRGRsdqCTxtPkHlZJrjHnVzWRRSMNwrQKlTdpdZFvzKjxwxBSNw" target="_blank" rel="noreferrer">
+            <Button startIcon={<EmailIcon/>} className={classes.root}>
+              gmail
+            </Button>
+          </a>
+        </div>
       </div>
     </>
   )

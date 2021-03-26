@@ -22,13 +22,14 @@ import bg from './images/bg.jpg';
 import bg1 from './images/bg1.jpg';
 import bg2 from './images/bg2.jpg';
 import bg3 from './images/bg3.jpg';
+import bg4 from './images/bg4.jpg';
 
 //material-ui
 import { useMediaQuery } from '@material-ui/core';
 
 const App = () => {
 
-  const showNavbarLow = useMediaQuery("(max-width: 628px)");
+  const showNavbarLow = useMediaQuery("(max-width: 635px)");
 
   //function for background-img shuffle
   const shuffle = (arr) => {
@@ -53,7 +54,7 @@ const App = () => {
 
   //backgroundImg
   const backgroundImg = shuffle([
-    bg, bg1, bg2, bg3
+    bg, bg1, bg2, bg3, bg4
   ])[0];
 
   return (
