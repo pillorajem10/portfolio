@@ -17,6 +17,7 @@ import Default from './pages/Default';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import NavbarLowReso from './components/NavbarLowReso';
+import ScrollToTop from './components/ScrollToTop';
 
 //images
 import bg from './images/bg.jpg';
@@ -61,6 +62,7 @@ const App = () => {
   return (
     <div className="main-body" style={{backgroundImage: `url(${backgroundImg})`}}>
       <BrowserRouter>
+        <ScrollToTop/>
         { showNavbarLow ? <NavbarLowReso/> : <Navbar/> }
         <Switch>
           <Route path="/" exact={true} component={Home}/>
