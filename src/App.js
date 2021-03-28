@@ -71,6 +71,7 @@ const App = () => {
           <Route path="/projects" component={Projects}/>
           <Route component={Default}/>
         </Switch>
+        <p>.</p>
         <Footer/>
       </BrowserRouter>
     </div>
