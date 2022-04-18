@@ -47,7 +47,7 @@ const Page = (props) => {
           </p>
         </div>
         <div data-aos="zoom-in" className="home-right-container">
-          <p className="container-title">Visit my social media accounts</p>
+          <p className="container-title">Keep me in touch with this social media platforms</p>
           <a href="https://github.com/pillorajem10" target="_blank" rel="noreferrer">
             <Button startIcon={<GitHubIcon/>} className={classes.root}>
               Github

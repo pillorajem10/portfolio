@@ -8,8 +8,8 @@ import 'aos/dist/aos.css';
 import { Button, withStyles } from '@material-ui/core';
 
 //images
-import rbook from './images/recipebook.png';
-import rptgen from './images/logo.png';
+import rbook from './images/jumbogold.png';
+import rptgen from './images/rptpage.png';
 
 // We can inject some CSS into the DOM.
 const styles = {
@@ -36,9 +36,9 @@ const Page = (props) => {
     <>
       <div className="main-container">
         <div data-aos="zoom-in" className="project-container">
-          <p className="container-title">Rptgen-v2 (Revamp)</p>
+          <p style={{ fontWeight: "bold" }} className="container-title">Rptgen-v2 (Revamp)</p>
           <div className="image-bg"><img className="project-image" src={rptgen} alt="Rptgen revamp"/></div>
-          <p>A report generating tool (PTP, DFR, RFA, PR2, etc). Developed by pillo, kula, colditz.</p>
+          <p>A document generating tool (PTP, DFR, RFA, PR2) for healthcare, insurance and other legal purposes.</p>
           <a href="https://rptgen.net/revamp/login" target="_blank" rel="noreferrer">
             <Button className={classes.root}>
               Check it out
@@ -46,10 +46,10 @@ const Page = (props) => {
           </a>
         </div>
         <div data-aos="zoom-in" className="project-container">
-          <p className="container-title">PH Recipebook</p>
-          <img className="project-image" src={rbook} alt="PH recipebook"/>
-          <p>Check recipes here, cook and share with your family and friends!</p>
-          <a href="https://phrecipebook.org/" target="_blank" rel="noreferrer">
+          <p style={{ fontWeight: "bold" }} className="container-title">Jumbo Gold & Diamond trader</p>
+          <img className="project-image" src={rbook} alt="Jumbo Gold & Diamond trader"/>
+          <p>An ecommerce website for diamond buyers to buy and browse online their desired diamonds for their love ones or for themselves.</p>
+          <a href="https://hapichair.com/" target="_blank" rel="noreferrer">
             <Button className={classes.root}>
               Check it out
             </Button>
