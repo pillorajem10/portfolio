@@ -48,7 +48,7 @@ const HideAppBar = () => {
                 <Link to="/">Home</Link>
               </li>
               <li className = "navbar-li">
-                <Link to="/about">About</Link>
+                <Link to="/services">Services</Link>
               </li>
               <li className = "navbar-li">
                 <Link to="/skills">Skills</Link>

@@ -13,7 +13,7 @@
 }
 
 .container-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 /* end of container */
 
@@ -64,9 +64,9 @@
 .home-left-container {
   width: 40rem;
   background-color: rgba(0, 0, 0, 0.6);
-  font-size: 1.5rem;
-  margin: 2rem;
-  padding: 0;
+  font-size: 1.4rem;
+  margin: 1rem;
+  padding: 1rem;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -78,8 +78,8 @@
   background-color: rgba(0, 0, 0, 0.6);
   font-size: 1.5rem;
   display: flex;
-  margin: 2rem;
-  padding: 0;
+  margin: 1rem;
+  padding: 1rem;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -100,9 +100,9 @@
 .about-container {
   width: 50rem;
   background-color: rgba(0, 0, 0, 0.6);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: flex;
-  margin: 2rem;
+  margin: 1rem;
   padding: 0;
   text-align: center;
   align-items: center;
@@ -111,7 +111,18 @@
 }
 /* end of about page*/
 
-
+.service-container {
+  width: 20rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 1.2rem;
+  display: flex;
+  margin: 2rem;
+  padding: 1rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
 
 
@@ -122,10 +133,10 @@
 .project-container {
   width: 30rem;
   background-color: rgba(0, 0, 0, 0.6);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: flex;
   margin: 2rem;
-  padding: 0;
+  padding: 1rem;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -138,7 +149,7 @@
 
 .project-image {
   object-fit: cover;
-  width:20rem
+  width: 100%
 }
 
 .image-bg {
@@ -167,7 +178,7 @@
  }
 
  .skills-container img{
-   width: 10rem;
+   width: 6rem;
    margin: 2rem;
  }
 /*  end of skill page  */
@@ -238,13 +249,13 @@
     font-size: 2rem;
   }
   .container-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .home-left-container {
     font-size: 1.2rem;
   }
   .project-container {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .about-container {
     font-size: 1.2rem;

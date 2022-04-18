@@ -66,7 +66,7 @@ const App = () => {
         { showNavbarLow ? <NavbarLowReso/> : <Navbar/> }
         <Switch>
           <Route path="/" exact={true} component={Home}/>
-          <Route path="/about" component={About}/>
+          <Route path="/services" component={About}/>
           <Route path="/skills" component={Skills}/>
           <Route path="/projects" component={Projects}/>
           <Route component={Default}/>
