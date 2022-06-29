@@ -49,7 +49,7 @@ const Page = (props) => {
           <p style={{ fontWeight: "bold" }} className="container-title">Jumbo Gold & Diamond trader</p>
           <img className="project-image" src={rbook} alt="Jumbo Gold & Diamond trader"/>
           <p>An ecommerce website for diamond buyers to buy and browse online their desired diamonds for their love ones or for themselves.</p>
-          <a href="https://hapichair.com/" target="_blank" rel="noreferrer">
+          <a href="https://p4tric.ph/" target="_blank" rel="noreferrer">
             <Button className={classes.root}>
               Check it out
             </Button>

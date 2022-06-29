@@ -87,7 +87,7 @@ const HideAppBar = (props) => {
               </ListItem>
               <ListItem className={classes.navbarLowListItems}>
                 <ComputerIcon/>
-                <Link className={classes.navbarLowLinks} onClick={handleDrawerClose} to="/about">About</Link>
+                <Link className={classes.navbarLowLinks} onClick={handleDrawerClose} to="/services">Services</Link>
               </ListItem>
               <ListItem className={classes.navbarLowListItems}>
                 <InfoIcon/>
