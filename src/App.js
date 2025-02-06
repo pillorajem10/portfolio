@@ -1,81 +1,42 @@
-import React from 'react';
+import React, { useState } from "react";
 
-//navigation
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+// Modules
+import Home from "./modules/Home";
+import Projects from "./modules/Projects";
+import Skills from "./modules/Skills";
 
-//css
-import './App.css';
+// Components
+import Sidebar from "./components/Sidebar"; // Adjust the import path as necessary
 
-//pages
-import Home from './pages/Home';
-import About from './pages/About';
-import Skills from './pages/Skills';
-import Projects from './pages/Projects';
-import Default from './pages/Default';
-
-//components
-import Footer from './components/Footer';
-import Navbar from './components/Navbar';
-import NavbarLowReso from './components/NavbarLowReso';
-import ScrollToTop from './components/ScrollToTop';
-
-//images
-import bg from './images/bg.jpg';
-import bg1 from './images/bg1.jpg';
-import bg2 from './images/bg2.jpg';
-import bg3 from './images/bg3.jpg';
-import bg4 from './images/bg4.jpg';
-
-//material-ui
-import { useMediaQuery } from '@material-ui/core';
+import styles from "./App.module.css";
 
 const App = () => {
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
-  const showNavbarLow = useMediaQuery("(max-width: 635px)");
-
-  //function for background-img shuffle
-  const shuffle = (arr) => {
-    let currentIndex = arr.length;
-    let temporaryValue;
-    let randomIndex;
-
-    // While there remain elements to shuffle...
-    while (currentIndex !== 0) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = arr[currentIndex];
-      arr[currentIndex] = arr[randomIndex];
-      arr[randomIndex] = temporaryValue;
-    }
-
-    return arr;
+  const toggleSidebar = () => {
+    setIsCollapsed((prev) => !prev);
   };
 
-  //backgroundImg
-  const backgroundImg = shuffle([
-    bg, bg1, bg2, bg3, bg4
-  ])[0];
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <div className="main-body" style={{backgroundImage: `url(${backgroundImg})`}}>
-      <BrowserRouter>
-        <ScrollToTop/>
-        { showNavbarLow ? <NavbarLowReso/> : <Navbar/> }
-        <Switch>
-          <Route path="/" exact={true} component={Home}/>
-          <Route path="/services" component={About}/>
-          <Route path="/skills" component={Skills}/>
-          <Route path="/projects" component={Projects}/>
-          <Route component={Default}/>
-        </Switch>
-        <p>.</p>
-        <Footer/>
-      </BrowserRouter>
+    <div className={styles.container}>
+      <Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} scrollToSection={scrollToSection} />
+      <div
+        className={styles.main_body}
+        style={{ width: isCollapsed ? "calc(100% - 50px)" : "calc(100% - 90px)" }}
+      >
+        <div id="home"><Home /></div>
+        <div id="skills"><Skills /></div>
+        <div id="projects"><Projects /></div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default App;

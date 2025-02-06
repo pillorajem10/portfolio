@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .main_body {
+    flex-grow: 1;
+    transition: width 0.3s ease;
+    overflow-x: hidden;
+  }
+  

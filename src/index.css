@@ -1,20 +1,12 @@
 body {
-  position: relative;
   margin: 0;
   font-family: 'Roboto', sans-serif;
   min-height: 100%;
   font-size: 1.2rem;
-  color: white;
+  color: black;
 }
 
 html {
-   height: 100%;
-   box-sizing: inherit;
+   height: 100svh;
 }
 
-.main-body {
-  background-color: black;
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-}

@@ -1,0 +1,106 @@
+.heroSection {
+  height: 100svh;
+  background: linear-gradient(45deg, #444343, #bebcbc);
+  display: flex;
+  gap: 5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  font-family: "Oswald", serif;
+  padding: 1rem;
+}
+
+.imageContainer {
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.detailsContainer {
+  max-width: 700px;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.heroSubtitle {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.heroSubtitle1 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: left;
+}
+
+@media (max-width: 1378px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .detailsContainer {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroSubtitle {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    text-align: center;
+  }
+
+  .heroSubtitle1 {
+    font-size: 1rem;
+    font-weight: lighter;
+    text-align: center;
+  }
+
+  .heroSection {
+    padding: 1rem;
+    gap: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+    font-weight: lighter;
+    text-align: center;
+  }
+
+  .heroSubtitle1 {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+  }
+}
