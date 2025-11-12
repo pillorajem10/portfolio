@@ -1,166 +1,244 @@
 .module_main_container {
-    text-align: center;
-    padding: .5rem;
-    background: #3a3a3a;
-    color: white;
-    font-family: "Arial", sans-serif;
-    height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  text-align: center;
+  padding: 2rem 1rem;
+  background: radial-gradient(circle at center, #2c2c2c, #1e1e1e);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ===== Title & Subtitle ===== */
+.moduleTitle {
+  font-size: 2.4rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #e0e0e0, #a9a9a9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.moduleSubtitle {
+  font-size: 1.1rem;
+  color: #b5b5b5;
+  margin-bottom: 2rem;
+  max-width: 650px;
+  line-height: 1.5;
+}
+
+/* ===== Skills Container ===== */
+.skillsFlexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 50px;
+  width: 100%;
+  max-width: 1300px;
+  perspective: 1200px;
+  overflow: visible;
+  padding: 1rem 0 3rem;
+}
+
+/* ===== Card ===== */
+.card {
+  flex: 0 0 auto;
+  width: 280px;
+  height: 200px;
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+
+.cardInner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+}
+
+.card:hover .cardInner {
+  transform: rotateY(180deg);
+}
+
+/* ===== Card Faces ===== */
+.cardFront,
+.cardBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cardFront {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+}
+
+.cardBack {
+  background: rgba(255, 255, 255, 0.08);
+  transform: rotateY(180deg);
+}
+
+/* ===== Front Content ===== */
+.cardImage {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.skillname {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f3f3f3;
+}
+
+/* ===== Back Content ===== */
+.skillDetails {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #e0e0e0;
+  padding: 0 10px;
+}
+
+/* ===== Hover Shadow ===== */
+.card:hover .cardInner {
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.08);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
   .skillsFlexContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-height: 100%; /* Limit the height of the container to avoid overflow */
+    padding-bottom: 3rem;
   }
-  
+
   .card {
-    width: 300px;
-    height: 200px;
-    background: transparent;
-    border-radius: 10px;
-    color: white;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    perspective: 1000px;
-    position: relative;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transition: transform 0.5s ease;
+    width: 230px;
+    height: 160px;
   }
-  
+
+  .cardImage {
+    width: 70px;
+    height: 70px;
+  }
+
+  .skillname {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .moduleTitle {
+    font-size: 2rem;
+  }
+
+  .moduleSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .skillsFlexContainer {
+    justify-content: center;
+  }
+
+  .card {
+    width: 180px;
+    height: 130px;
+  }
+
+  .cardImage {
+    width: 60px;
+    height: 60px;
+  }
+
+  .skillname {
+    font-size: 0.85rem;
+  }
+
+  .skillDetails {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .skillsFlexContainer {
+    padding: 1rem 0 4rem;
+  }
+
+  .card {
+    width: 140px;
+    height: 115px;
+  }
+
+  .cardImage {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 8px;
+  }
+
+  .skillname {
+    font-size: 0.75rem;
+  }
+
+  .skillDetails {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .skillsFlexContainer {
+    padding: 0.5rem 0 3rem;
+  }
+
+  .card {
+    width: 100px;
+    height: 80px;
+  }
+
+  .cardInner {
+    transform: none !important; /* disable flip on very small screens */
+  }
+
   .cardFront,
   .cardBack {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    border: 1px solid #fff;
-  }
-  
-  .cardFront {
-    background: transparent;
-  }
-  
-  .cardBack {
-    background: transparent;
-    transform: rotateY(180deg);
-    padding: 10px;
-    font-size: 1rem;
-    text-align: center;
-  }
-  
-  .cardFront img {
-    max-width: 100px; /* Set the size for each logo */
-    width: 100%;
-    object-fit: contain; /* Ensures the image doesn't stretch or distort */
-    margin-bottom: 10px;
-  }
-  
-  /* Media Query for 550px screen size and below to hide images */
-  @media (max-width: 550px) {
-    .cardFront img {
-      display: none; /* Hide the images */
-    }
-  }
-  
-  /* Media Query for 1415px screen size and below */
-  @media (max-width: 1415px) {
-    .card {
-      width: 250px; /* Reduce card width */
-      height: 150px; /* Reduce card height */
-    }
-  
-    .cardFront img {
-      max-width: 80px; /* Reduce image size */
-      width: 80px;
-      margin-bottom: 8px; /* Adjust margin for smaller size */
-    }
-  }
-  
-  /* Media Query for 1024px screen size and below */
-  @media (max-width: 1024px) {
-    .card {
-      width: 200px; /* Further reduce card size */
-      height: 150px;
-    }
-  
-    .cardFront img {
-      max-width: 70px; /* Reduce image size */
-      width: 70px;
-      margin-bottom: 6px;
-    }
-
-    .cardFront,
-    .cardBack {
-      font-size: .85rem; /* Adjust font size for smaller screens */
-    }
-  }
-  
-  /* Media Query for 768px screen size and below */
-  @media (max-width: 768px) {
-    .card {
-      width: 180px; /* Further reduce card size */
-      height: 150px;
-    }
-  
-    .cardFront img {
-      max-width: 60px; /* Reduce image size */
-      width: 60px;
-      margin-bottom: 4px;
-    }
-  }
-  
-  /* Media Query for 480px screen size and below */
-  @media (max-width: 495px) {
-    .card {
-      width: 150px; /* Further reduce card size */
-      height: 120px;
-    }
-  
-    .cardFront img {
-      max-width: 50px; /* Reduce image size */
-      width: 50px;
-      margin-bottom: 2px;
-    }
+    font-size: 0.60rem;
   }
 
-  @media (max-width: 430px) {
-    .card {
-      padding: 5px;
-      width: 90px; /* Further reduce card size */
-      height: 100px;
-    }
-
-    .skillname {
-        font-size: .85rem;
-    }
-  
-    .cardFront img {
-      max-width: 50px; /* Reduce image size */
-      width: 50px;
-      margin-bottom: 2px;
-    }
-  
-    .cardFront,
-    .cardBack {
-      font-size: .5rem; /* Adjust font size for smaller screens */
-      font-weight: bold;
-    }
+  .cardImage {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 6px;
   }
 
-  
-  
+  .skillname {
+    font-size: 0.7rem;
+  }
+
+  .skillDetails {
+    font-size: 0.65rem;
+  }
+}
+

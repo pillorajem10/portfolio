@@ -1,55 +1,45 @@
-import React from 'react';
 import styles from './index.module.css';
-import uscStore from './USC.PNG';
-import uscAdmin from './USC_admin.PNG';
-import wotgBlogs from './wotg_blogs.PNG';
-import wotgMission from './wotg_mission.PNG';
-import wotgSocial from './wotg_social.PNG';
-import wotgChat from './wotg_chat.PNG';
-import rptgen from './rptgen.PNG';
+import wotgSocial from './wotg_social.webp';
+import rptgen from './rptgen.webp';
+import margaAccounting from './marga_accounting.webp';
+import wotgAdmin from './wotg_admin.webp';
+import garbia from './garbia.webp';
 
 const projects = [
   {
-    title: 'USC Store',
-    description: 'A B2B ecommerce for ukay ukay resellers created using Laravel.',
-    image: uscStore,
-    link: 'https://store.ukayukaysupplier.com/',
-  },
-  {
-    title: 'USC Admin',
-    description: 'Admin website for USC Store to monitor sales, add products, and check inventory using Laravel.',
-    image: uscAdmin,
-    link: 'https://admin.ukayukaysupplier.com/login',
-  },
-  {
-    title: 'Blogs WOTG Online',
-    description: 'A blog website created using Laravel for daily devotions.',
-    image: wotgBlogs,
-    link: 'https://blogs.wotgonline.com/blogs',
-  },
-  {
-    title: 'Mission WOTG Online',
-    description: 'A website for WOTG Church missionaries to connect with seekers via a built-in email system.',
-    image: wotgMission,
-    link: 'https://mission.wotgonline.com/',
-  },
-  {
     title: 'WOTG Online Community',
-    description: 'A social website where members can share family photos and spiritual gatherings, built with Laravel.',
+    description:
+      'A full-featured social media platform for WOTG Church — integrating music, devotion feeds, live chat (Socket.IO), Bible access, and live worship streaming. Built with the MERN stack to create a connected digital space for faith and fellowship.',
     image: wotgSocial,
-    link: 'https://blogs.wotgonline.com/',
+    link: 'https://community.wotgonline.com/',
   },
   {
-    title: 'WOTG Chat App (Ongoing)',
-    description: 'A chat website built using ReactJS, NodeJS/Express, and MySQL for gospel sharing and communication.',
-    image: wotgChat,
-    link: 'https://chat.wotgonline.com/',
+    title: 'WOTG Online Community Admin',
+    description:
+      'An intuitive administration console for managing users, content, and live events within the WOTG Community. Developed with React and NodeJS, featuring secure role-based controls, analytics, and streamlined moderation tools.',
+    image: wotgAdmin,
+    link: 'https://management.wotgonline.com/',
+  },
+  {
+    title: 'Marga Enterprises Accounting System',
+    description:
+      'A custom-built accounting and reporting platform designed to automate financial workflows for Marga Enterprises. Developed using the MERN stack, it simplifies transactions, reporting, and audit tracking for business operations.',
+    image: margaAccounting,
+    link: 'https://accountingsystem.marga.biz/',
   },
   {
     title: 'Rptgen',
-    description: 'A report-generating tool for healthcare clinics using MERN Stack and Spring Boot.',
+    description:
+      'A cross-platform report generation tool built for healthcare clinics and diagnostic centers. Powered by the MERN stack and Spring Boot, Rptgen enables automated report creation, real-time data analysis, and secure record management.',
     image: rptgen,
     link: 'https://rptgen.net/',
+  },
+  {
+    title: 'Garbia SGS',
+    description:
+      'A professional geotechnical and soil testing solutions company website showcasing Garbia’s engineering services, laboratory capabilities, and structural consultancy expertise. Designed with React and modern UI principles to reflect precision and reliability in the field of geotechnical engineering.',
+    image: garbia,
+    link: 'https://garbiasgs.netlify.app/',
   },
 ];
 
@@ -57,14 +47,29 @@ const Portfolio = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>My Projects</h1>
-      <div className={styles.flexContainer}>
+      <p className={styles.subtitle}>
+        A curated showcase of web applications and systems I’ve crafted — merging functionality,
+        design, and purpose to deliver meaningful digital experiences.
+      </p>
+
+      <div className={styles.grid}>
         {projects.map((project, index) => (
           <div key={index} className={styles.card}>
-            <div className={styles.cardContent}>
-              <img src={project.image} alt={project.title} className={styles.image} />
+            <img src={project.image} alt={project.title} className={styles.image} />
+
+            <div className={styles.cardBody}>
               <h2 className={styles.projectTitle}>{project.title}</h2>
               <p className={styles.description}>{project.description}</p>
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.button}>Check Out!</a>
+
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.button}
+                onClick={(e) => e.stopPropagation()}
+              >
+                Visit Project
+              </a>
             </div>
           </div>
         ))}
