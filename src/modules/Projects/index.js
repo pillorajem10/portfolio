@@ -9,35 +9,35 @@ const projects = [
   {
     title: 'WOTG Online Community',
     description:
-      'A full-featured social media platform for WOTG Church — integrating music, devotion feeds, live chat (Socket.IO), Bible access, and live worship streaming. Built with the MERN stack to create a connected digital space for faith and fellowship.',
+      'A full-featured social platform for WOTG Church that includes devotion feeds, music playlists, real-time chat, Bible access, and live worship streaming — all in one connected digital space.',
     image: wotgSocial,
     link: 'https://community.wotgonline.com/',
   },
   {
     title: 'WOTG Online Community Admin',
     description:
-      'An intuitive administration console for managing users, content, and live events within the WOTG Community. Developed with React and NodeJS, featuring secure role-based controls, analytics, and streamlined moderation tools.',
+      'An intuitive admin console for managing users, content, announcements, and live events. Features role-based access, content moderation tools, and community activity oversight.',
     image: wotgAdmin,
     link: 'https://management.wotgonline.com/',
   },
   {
     title: 'Marga Enterprises Accounting System',
     description:
-      'A custom-built accounting and reporting platform designed to automate financial workflows for Marga Enterprises. Developed using the MERN stack, it simplifies transactions, reporting, and audit tracking for business operations.',
+      'A custom accounting platform that automates sales tracking, billing, payroll, inventory, collection, and financial reporting — streamlining end-to-end business workflows.',
     image: margaAccounting,
     link: 'https://accountingsystem.marga.biz/',
   },
   {
     title: 'Rptgen',
     description:
-      'A cross-platform report generation tool built for healthcare clinics and diagnostic centers. Powered by the MERN stack and Spring Boot, Rptgen enables automated report creation, real-time data analysis, and secure record management.',
+      'A report-generation system for clinics and diagnostic centers, offering automated report creation, patient record management, secure access, and real-time data viewing.',
     image: rptgen,
     link: 'https://rptgen.net/',
   },
   {
     title: 'Garbia SGS',
     description:
-      'A professional geotechnical and soil testing solutions company website showcasing Garbia’s engineering services, laboratory capabilities, and structural consultancy expertise. Designed with React and modern UI principles to reflect precision and reliability in the field of geotechnical engineering.',
+      'A company website showcasing geotechnical, structural, and soil testing services — presenting laboratory capabilities, project portfolio, and engineering expertise with a clean and professional interface.',
     image: garbia,
     link: 'https://garbiasgs.netlify.app/',
   },
