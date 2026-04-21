@@ -1,7 +1,8 @@
 .module_main_container {
+  position: relative;
   text-align: center;
-  padding: 2rem 1rem;
-  background: radial-gradient(circle at center, #2c2c2c, #1e1e1e);
+  padding: 2.25rem 1rem;
+  background: radial-gradient(ellipse 120% 80% at 50% 0%, #2a2d38 0%, #14151a 45%, #0c0d10 100%);
   color: white;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
@@ -9,145 +10,237 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
-/* ===== Title & Subtitle ===== */
+.module_main_container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 0.7px, transparent 0.7px);
+  background-size: 24px 24px;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.backdropGlow {
+  position: absolute;
+  width: min(900px, 88vw);
+  height: 420px;
+  top: -200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(89, 122, 255, 0.18) 0%, rgba(12, 13, 16, 0) 68%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .moduleTitle {
+  position: relative;
+  z-index: 1;
   font-size: 2.4rem;
   font-weight: 700;
-  background: linear-gradient(90deg, #e0e0e0, #a9a9a9);
+  letter-spacing: -0.02em;
+  background: linear-gradient(120deg, #f4f4f5 0%, #a8adb8 50%, #e8eaef 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;
 }
 
 .moduleSubtitle {
-  font-size: 1.1rem;
-  color: #b5b5b5;
-  margin-bottom: 2rem;
-  max-width: 650px;
-  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+  font-size: 1.05rem;
+  color: #8b919d;
+  margin-bottom: 2.25rem;
+  max-width: 520px;
+  line-height: 1.6;
 }
 
-/* ===== Skills Container ===== */
-.skillsFlexContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-  gap: 50px;
+.skillsGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+  gap: 1.35rem;
   width: 100%;
-  max-width: 1300px;
-  perspective: 1200px;
-  overflow: visible;
-  padding: 1rem 0 3rem;
+  max-width: 1180px;
+  padding: 0.5rem 0 3rem;
+  justify-items: stretch;
 }
 
-/* ===== Card ===== */
 .card {
-  flex: 0 0 auto;
-  width: 280px;
-  height: 200px;
   position: relative;
-  cursor: pointer;
-  perspective: 1000px;
-  transition: transform 0.4s ease;
-  z-index: 0;
+  border-radius: 20px;
+  text-align: left;
+  cursor: default;
+  isolation: isolate;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
 }
 
-.cardInner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.6s ease;
-  border-radius: 12px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
-}
-
-.card:hover .cardInner {
-  transform: rotateY(180deg);
-}
-
-/* ===== Card Faces ===== */
-.cardFront,
-.cardBack {
+.cardGlow {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  inset: -1px;
+  border-radius: 21px;
+  background: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    transparent 42%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  opacity: 0.45;
+  z-index: 0;
+  transition: opacity 0.45s ease, filter 0.45s ease;
+  filter: blur(0);
+  pointer-events: none;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cardBody {
+  position: relative;
+  z-index: 1;
   height: 100%;
-  backface-visibility: hidden;
-  border-radius: 12px;
+  min-height: 230px;
+  padding: 1.35rem 1.35rem 1.25rem;
+  border-radius: 20px;
+  background: linear-gradient(
+    165deg,
+    rgba(28, 30, 38, 0.92) 0%,
+    rgba(18, 19, 26, 0.96) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.iconWrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  padding: 1rem;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+  background: radial-gradient(
+    circle at 30% 25%,
+    var(--accent-soft),
+    rgba(255, 255, 255, 0.03) 70%
+  );
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
 }
 
-.cardFront {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-}
-
-.cardBack {
-  background: rgba(255, 255, 255, 0.08);
-  transform: rotateY(180deg);
-}
-
-/* ===== Front Content ===== */
 .cardImage {
-  width: 90px;
-  height: 90px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
-  margin-bottom: 12px;
-  transition: transform 0.3s ease;
-}
-
-.card:hover .cardImage {
-  transform: scale(1.05);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .skillname {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  color: #f3f3f3;
+  color: #f0f1f4;
+  margin: 0 0 0.55rem;
+  letter-spacing: -0.01em;
 }
 
-/* ===== Back Content ===== */
+.skillTag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, rgba(255, 255, 255, 0.06));
+  border-radius: 999px;
+  padding: 0.24rem 0.52rem;
+  margin: 0 0 0.58rem;
+}
+
 .skillDetails {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  color: #e0e0e0;
-  padding: 0 10px;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: #9aa0ae;
+  margin: 0;
+  flex: 1;
 }
 
-/* ===== Hover Shadow ===== */
-.card:hover .cardInner {
-  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.08);
-}
-
-/* ===== Responsive Design ===== */
-@media (max-width: 1024px) {
-  .skillsFlexContainer {
-    padding-bottom: 3rem;
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45),
+      0 0 0 1px rgba(255, 255, 255, 0.08);
   }
 
-  .card {
-    width: 230px;
-    height: 160px;
+  .card:hover .cardGlow {
+    opacity: 0.95;
+    filter: blur(0.5px);
+  }
+
+  .card:hover .iconWrap {
+    transform: scale(1.06) translateY(-2px);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+      0 0 24px var(--accent-soft),
+      0 12px 28px rgba(0, 0, 0, 0.35);
+  }
+
+  .card:hover .cardImage {
+    transform: scale(1.08);
+  }
+
+  .card:hover .skillDetails {
+    color: #b4bac8;
+  }
+
+  .card:hover .skillTag {
+    border-color: color-mix(in srgb, var(--accent) 55%, rgba(255, 255, 255, 0.08));
+    background: color-mix(in srgb, var(--accent) 20%, transparent);
+  }
+}
+
+@media (max-width: 1024px) {
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.15rem;
+  }
+
+  .cardBody {
+    min-height: 205px;
+    padding: 1.2rem;
+  }
+
+  .iconWrap {
+    width: 58px;
+    height: 58px;
   }
 
   .cardImage {
-    width: 70px;
-    height: 70px;
+    width: 36px;
+    height: 36px;
   }
 
   .skillname {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
 }
 
@@ -160,22 +253,55 @@
     font-size: 0.95rem;
   }
 
-  .skillsFlexContainer {
-    justify-content: center;
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
   }
 
-  .card {
-    width: 180px;
-    height: 130px;
+  .cardBody {
+    min-height: 188px;
+  }
+
+  .skillDetails {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .skillsGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1rem 0 3rem;
+  }
+
+  .cardBody {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .module_main_container {
+    padding: 1.5rem 0.85rem;
+  }
+
+  .backdropGlow {
+    top: -220px;
+    width: 96vw;
+  }
+
+  .iconWrap {
+    width: 52px;
+    height: 52px;
   }
 
   .cardImage {
-    width: 60px;
-    height: 60px;
+    width: 32px;
+    height: 32px;
   }
 
   .skillname {
-    font-size: 0.85rem;
+    font-size: 1rem;
   }
 
   .skillDetails {
@@ -183,62 +309,21 @@
   }
 }
 
-@media (max-width: 550px) {
-  .skillsFlexContainer {
-    padding: 1rem 0 4rem;
-  }
-
-  .card {
-    width: 140px;
-    height: 115px;
-  }
-
-  .cardImage {
-    width: 45px;
-    height: 45px;
-    margin-bottom: 8px;
-  }
-
-  .skillname {
-    font-size: 0.75rem;
-  }
-
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cardGlow,
+  .iconWrap,
+  .cardImage,
   .skillDetails {
-    font-size: 0.7rem;
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .card:hover .iconWrap,
+  .card:hover .cardImage {
+    transform: none;
   }
 }
-
-@media (max-width: 420px) {
-  .skillsFlexContainer {
-    padding: 0.5rem 0 3rem;
-  }
-
-  .card {
-    width: 100px;
-    height: 80px;
-  }
-
-  .cardInner {
-    transform: none !important; /* disable flip on very small screens */
-  }
-
-  .cardFront,
-  .cardBack {
-    font-size: 0.60rem;
-  }
-
-  .cardImage {
-    width: 38px;
-    height: 38px;
-    margin-bottom: 6px;
-  }
-
-  .skillname {
-    font-size: 0.7rem;
-  }
-
-  .skillDetails {
-    font-size: 0.65rem;
-  }
-}
-

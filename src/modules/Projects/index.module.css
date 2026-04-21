@@ -1,167 +1,292 @@
-/* ===== GENERAL LAYOUT ===== */
 .container {
+  position: relative;
   min-height: 100vh;
-  background: radial-gradient(circle at top left, #2b2b2b, #1e1e1e 55%, #3a3a3a);
-  background-attachment: fixed;
-  color: #f2f2f2;
+  background: radial-gradient(ellipse 120% 80% at 50% 0%, #2a2d38 0%, #14151a 45%, #0c0d10 100%);
+  color: #f0f1f4;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 1.5rem;
-  font-family: 'Poppins', sans-serif;
+  padding: 3rem 1.25rem 4rem;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 0.7px, transparent 0.7px);
+  background-size: 26px 26px;
+  opacity: 0.28;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.backdropGlow {
+  position: absolute;
+  width: min(920px, 90vw);
+  height: 430px;
+  top: -215px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(94, 126, 255, 0.18) 0%, rgba(12, 13, 16, 0) 70%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .title {
-  font-size: 2.6rem;
+  position: relative;
+  z-index: 1;
+  font-size: 2.4rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
   text-align: center;
-  background: linear-gradient(90deg, #ffffff, #bfbfbf);
+  background: linear-gradient(120deg, #f4f4f5 0%, #a8adb8 50%, #e8eaef 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-  font-size: 1.1rem;
-  color: #c0c0c0;
+  position: relative;
+  z-index: 1;
+  font-size: 1.05rem;
+  color: #8b919d;
   margin-bottom: 2.5rem;
   text-align: center;
-  max-width: 700px;
-  line-height: 1.6;
+  max-width: 560px;
+  line-height: 1.65;
 }
 
-/* ===== GRID & CARD ===== */
 .grid {
+  position: relative;
+  z-index: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 1.5rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1180px;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(10px);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
-}
-
-/* ===== IMAGE ===== */
-.image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  filter: brightness(0.9) contrast(1.05);
-}
-
-/* ===== CARD BODY ===== */
-.cardBody {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1;
-}
-
-.projectTitle {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  color: #fff;
-}
-
-.description {
-  font-size: 1rem;
-  color: #bcbcbc;
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
-}
-
-/* ===== BUTTON ===== */
-.button {
   position: relative;
-  z-index: 2;
-  background: linear-gradient(90deg, #666666, #4a4a4a);
-  color: #f5f5f5;
-  padding: 0.7rem 1.6rem;
-  text-decoration: none;
-  font-weight: 500;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
-  text-align: center;
-  width: fit-content;
-  align-self: center;
-  cursor: pointer;
+  border-radius: 22px;
+  isolation: isolate;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
 }
 
-.button:hover {
-  background: linear-gradient(90deg, #8c8c8c, #5c5c5c);
-  transform: translateY(-2px);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
-}
-
-/* ===== HOVER GLOW EFFECT ===== */
-.button::after {
-  content: "";
+.cardGlow {
   position: absolute;
-  width: 120%;
-  height: 120%;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  top: -10%;
-  left: -10%;
-  transform: skewX(-20deg);
-  opacity: 0;
+  inset: -1px;
+  border-radius: 23px;
+  background: linear-gradient(
+    145deg,
+    var(--accent) 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  opacity: 0.4;
+  z-index: 0;
+  transition: opacity 0.45s ease;
   pointer-events: none;
 }
 
-.button:hover::after {
-  animation: shine 0.6s ease forwards;
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  z-index: 2;
+  pointer-events: none;
 }
 
-@keyframes shine {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%) skewX(-20deg);
+.cardInner {
+  position: relative;
+  z-index: 1;
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(
+    168deg,
+    rgba(28, 30, 38, 0.95) 0%,
+    rgba(16, 17, 22, 0.98) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #0a0b0f;
+}
+
+.media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 55%,
+    rgba(12, 13, 18, 0.85) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.45s ease;
+  filter: brightness(0.92) saturate(1.05);
+}
+
+.cardBody {
+  padding: 1.35rem 1.4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  text-align: left;
+}
+
+.indexMark {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  opacity: 0.85;
+  margin-bottom: 0.35rem;
+}
+
+.projectTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.65rem;
+  color: #f0f1f4;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.projectTag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, rgba(255, 255, 255, 0.06));
+  border-radius: 999px;
+  padding: 0.24rem 0.52rem;
+  margin: 0 0 0.52rem;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #9aa0ae;
+  line-height: 1.58;
+  margin: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 28px 56px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.07);
   }
-  50% {
-    opacity: 1;
+
+  .card:hover .cardGlow {
+    opacity: 0.88;
   }
-  100% {
-    opacity: 0;
-    transform: translateX(100%) skewX(-20deg);
+
+  .card:hover .image {
+    transform: scale(1.06);
+    filter: brightness(1) saturate(1.08);
+  }
+
+  .card:hover .description {
+    color: #b4bac8;
+  }
+
+  .card:hover .projectTag {
+    border-color: color-mix(in srgb, var(--accent) 55%, rgba(255, 255, 255, 0.08));
+    background: color-mix(in srgb, var(--accent) 20%, transparent);
   }
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  .container {
+    padding: 2.25rem 1rem 3rem;
+  }
+
   .title {
     font-size: 2rem;
   }
 
   .subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .grid {
+    gap: 1.25rem;
   }
 
   .cardBody {
-    padding: 1rem;
+    padding: 1.15rem 1.2rem 1.35rem;
   }
 
-  .button {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.95rem;
+  .projectTitle {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .backdropGlow {
+    top: -230px;
+    width: 98vw;
+  }
+
+  .media {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cardGlow,
+  .image,
+  .description {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .card:hover .image {
+    transform: none;
   }
 }
