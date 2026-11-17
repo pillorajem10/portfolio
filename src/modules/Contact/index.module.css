@@ -1,0 +1,180 @@
+.section {
+  position: relative;
+  z-index: 2;
+  padding: 5rem 0 2rem;
+}
+
+.container {
+  width: min(1200px, 100% - 3rem);
+  margin: 0 auto;
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem;
+  border-radius: 32px;
+  border: 1px solid var(--border-strong);
+  background: radial-gradient(ellipse at 50% 0%, rgba(139, 92, 246, 0.22), transparent 65%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+}
+.panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, 0.05);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--cyan);
+}
+.badge svg {
+  animation: wiggle 2.4s ease-in-out infinite;
+}
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+  50% {
+    transform: translate(3px, -3px) rotate(8deg);
+  }
+}
+
+.title {
+  margin: 1.4rem auto 0;
+  max-width: 800px;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5.5vw, 3.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #fff;
+}
+
+.text {
+  margin: 1.2rem auto 0;
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2.25rem;
+}
+
+.primary,
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.7rem;
+  border-radius: 14px;
+  font-weight: 500;
+}
+.primary {
+  color: #05070d;
+  background: var(--grad);
+  background-size: 200% 100%;
+  box-shadow: 0 10px 40px -10px rgba(139, 92, 246, 0.7);
+  transition: background-position 0.6s var(--ease), box-shadow 0.4s ease;
+}
+.primary:hover {
+  background-position: 100% 0;
+  box-shadow: 0 14px 50px -8px rgba(34, 211, 238, 0.65);
+}
+.primary svg {
+  transition: transform 0.4s var(--ease);
+}
+.primary:hover svg {
+  transform: translateY(-3px) rotate(-10deg);
+}
+.ghost {
+  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, 0.04);
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.35s var(--ease);
+}
+.ghost:hover {
+  border-color: var(--cyan);
+  background: rgba(34, 211, 238, 0.08);
+  transform: translateY(-3px);
+}
+
+/* decorative orbiting rings */
+.orbit {
+  position: absolute !important;
+  inset: 0;
+  z-index: 0 !important;
+  pointer-events: none;
+}
+.orbit span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 1px dashed rgba(139, 92, 246, 0.25);
+  translate: -50% -50%;
+  animation: rotate 40s linear infinite;
+}
+.orbit span:nth-child(1) {
+  width: 420px;
+  height: 420px;
+}
+.orbit span:nth-child(2) {
+  width: 700px;
+  height: 700px;
+  border-color: rgba(34, 211, 238, 0.16);
+  animation-duration: 60s;
+  animation-direction: reverse;
+}
+.orbit span:nth-child(3) {
+  width: 1000px;
+  height: 1000px;
+  border-color: rgba(244, 114, 182, 0.12);
+  animation-duration: 90s;
+}
+@keyframes rotate {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.3s ease;
+}
+.top svg {
+  transition: transform 0.35s var(--ease);
+}
+.top:hover {
+  color: var(--cyan);
+}
+.top:hover svg {
+  transform: translateY(-4px);
+}

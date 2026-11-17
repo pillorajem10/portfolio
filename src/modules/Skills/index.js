@@ -1,5 +1,7 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { useRef, useState } from "react";
+import Reveal from "../../components/Reveal";
+import SectionHeading from "../../components/SectionHeading";
+import useTilt from "../../hooks/useTilt";
 import styles from "./index.module.css";
 
 import gitLogo from "./images/git.webp";
@@ -13,137 +15,147 @@ import reduxLogo from "./images/redux.webp";
 import ubuntuLogo from "./images/ubuntu1.webp";
 import expressLogo from "./images/expressLogo.webp";
 
-const ACCENT_HUES = [199, 265, 152, 32, 280, 12, 43, 145, 210, 318];
+const FILTERS = ["All", "Frontend", "Backend", "Database", "DevOps & Tools"];
 
-const Module = () => {
-  const cardRefs = useRef([]);
+const SKILLS = [
+  {
+    name: "ReactJS",
+    details: "Component-based UI library for building dynamic web apps.",
+    image: reactLogo,
+    category: "Frontend",
+    hue: 199,
+  },
+  {
+    name: "Redux",
+    details: "Predictable state management for scalable JavaScript apps.",
+    image: reduxLogo,
+    category: "Frontend",
+    hue: 265,
+  },
+  {
+    name: "NodeJS",
+    details: "Fast, scalable server-side runtime for real-time web applications.",
+    image: nodeLogo,
+    category: "Backend",
+    hue: 140,
+  },
+  {
+    name: "ExpressJS",
+    details: "Minimalist Node.js framework for APIs and web applications.",
+    image: expressLogo,
+    category: "Backend",
+    hue: 48,
+  },
+  {
+    name: "Laravel",
+    details: "Elegant PHP framework with powerful built-in tools for rapid dev.",
+    image: laravelLogo,
+    category: "Backend",
+    hue: 8,
+  },
+  {
+    name: "MongoDB",
+    details: "NoSQL database storing data in flexible, JSON-like format.",
+    image: mongoLogo,
+    category: "Database",
+    hue: 150,
+  },
+  {
+    name: "MySQL",
+    details: "Relational database for structured data storage and queries.",
+    image: mysqlLogo,
+    category: "Database",
+    hue: 205,
+  },
+  {
+    name: "Docker",
+    details: "Containerization platform for consistent and portable deployment.",
+    image: dockerLogo,
+    category: "DevOps & Tools",
+    hue: 210,
+  },
+  {
+    name: "Ubuntu/Linux",
+    details: "Reliable open-source OS for development and deployment.",
+    image: ubuntuLogo,
+    category: "DevOps & Tools",
+    hue: 20,
+  },
+  {
+    name: "Git",
+    details: "Distributed version control system for collaboration and tracking.",
+    image: gitLogo,
+    category: "DevOps & Tools",
+    hue: 12,
+  },
+];
 
-  const skills = [
-    {
-      name: "NodeJS",
-      details: "Fast, scalable server-side runtime for real-time web applications.",
-      image: nodeLogo,
-      category: "Backend",
-    },
-    {
-      name: "ReactJS",
-      details: "Component-based UI library for building dynamic web apps.",
-      image: reactLogo,
-      category: "Frontend",
-    },
-    {
-      name: "Docker",
-      details: "Containerization platform for consistent and portable deployment.",
-      image: dockerLogo,
-      category: "DevOps",
-    },
-    {
-      name: "ExpressJS",
-      details: "Minimalist Node.js framework for APIs and web applications.",
-      image: expressLogo,
-      category: "Backend",
-    },
-    {
-      name: "Ubuntu/Linux",
-      details: "Reliable open-source OS for development and deployment.",
-      image: ubuntuLogo,
-      category: "Platform",
-    },
-    {
-      name: "Git",
-      details: "Distributed version control system for collaboration and tracking.",
-      image: gitLogo,
-      category: "Workflow",
-    },
-    {
-      name: "Laravel",
-      details: "Elegant PHP framework with powerful built-in tools for rapid dev.",
-      image: laravelLogo,
-      category: "Backend",
-    },
-    {
-      name: "MongoDB",
-      details: "NoSQL database storing data in flexible, JSON-like format.",
-      image: mongoLogo,
-      category: "Database",
-    },
-    {
-      name: "MySQL",
-      details: "Relational database for structured data storage and queries.",
-      image: mysqlLogo,
-      category: "Database",
-    },
-    {
-      name: "Redux",
-      details: "Predictable state management for scalable JavaScript apps.",
-      image: reduxLogo,
-      category: "State",
-    },
-  ];
-
-  useEffect(() => {
-    const cards = cardRefs.current.filter(Boolean);
-    if (!cards.length) return undefined;
-
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) {
-      gsap.set(cards, { opacity: 1, y: 0 });
-      return undefined;
-    }
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        cards,
-        { opacity: 0, y: 36, scale: 0.96 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.65,
-          ease: "power3.out",
-          stagger: { each: 0.055, from: "start" },
-          clearProps: "transform",
-        }
-      );
-    });
-
-    return () => ctx.revert();
-  }, []);
+const SkillCard = ({ skill }) => {
+  const ref = useRef(null);
+  useTilt(ref, { max: 7, scale: 1.03 });
 
   return (
-    <div className={styles.module_main_container}>
-      <div className={styles.backdropGlow} aria-hidden />
-      <h1 className={styles.moduleTitle}>Tech Stack & Tools</h1>
-      <p className={styles.moduleSubtitle}>
-        A snapshot of the languages, frameworks, and platforms I build and ship with.
-      </p>
-
-      <div className={styles.skillsGrid}>
-        {skills.map((skill, index) => (
-          <article
-            key={skill.name}
-            ref={(el) => {
-              cardRefs.current[index] = el;
-            }}
-            className={styles.card}
-            style={{
-              "--accent": `hsl(${ACCENT_HUES[index % ACCENT_HUES.length]}, 70%, 58%)`,
-              "--accent-soft": `hsla(${ACCENT_HUES[index % ACCENT_HUES.length]}, 65%, 55%, 0.22)`,
-            }}
-          >
-            <div className={styles.cardGlow} aria-hidden />
-            <div className={styles.cardBody}>
-              <div className={styles.iconWrap}>
-                <img src={skill.image} alt="" className={styles.cardImage} />
-              </div>
-              <span className={styles.skillTag}>{skill.category}</span>
-              <h3 className={styles.skillname}>{skill.name}</h3>
-              <p className={styles.skillDetails}>{skill.details}</p>
-            </div>
-          </article>
-        ))}
+    <article
+      ref={ref}
+      data-spotlight
+      className={styles.card}
+      style={{ "--hue": skill.hue }}
+    >
+      <div className={styles.cardBody}>
+        <div className={styles.iconWrap}>
+          <img src={skill.image} alt="" loading="lazy" className={styles.cardImage} />
+        </div>
+        <span className={styles.tag}>{skill.category}</span>
+        <h3 className={styles.name}>{skill.name}</h3>
+        <p className={styles.details}>{skill.details}</p>
+        <span className={styles.bar} aria-hidden />
       </div>
-    </div>
+    </article>
+  );
+};
+
+const Module = () => {
+  const [filter, setFilter] = useState("All");
+  const visible = SKILLS.filter((s) => filter === "All" || s.category === filter);
+
+  return (
+    <section className={styles.section}>
+      <div className={styles.container}>
+        <SectionHeading
+          index="02"
+          eyebrow="Tech stack"
+          title="Tools I build and ship with"
+          highlight="every day"
+          subtitle="A snapshot of the languages, frameworks and platforms behind my work."
+        />
+
+        <Reveal>
+          <div className={styles.filters} role="tablist" aria-label="Filter skills by category">
+            {FILTERS.map((f) => (
+              <button
+                key={f}
+                type="button"
+                role="tab"
+                aria-selected={filter === f}
+                className={`${styles.filter} ${filter === f ? styles.filterActive : ""}`}
+                onClick={() => setFilter(f)}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+        </Reveal>
+
+        <div className={styles.grid}>
+          {visible.map((skill, i) => (
+            // Re-keyed per filter so cards replay their entrance animation.
+            <Reveal key={`${filter}-${skill.name}`} delay={(i % 4) * 80}>
+              <SkillCard skill={skill} />
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

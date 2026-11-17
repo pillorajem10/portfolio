@@ -1,11 +1,10 @@
 .container {
-    display: flex;
-    width: 100%;
-  }
-  
-  .main_body {
-    flex-grow: 1;
-    transition: width 0.3s ease;
-    overflow-x: hidden;
-  }
-  
+  position: relative;
+  min-height: 100vh;
+}
+
+.main {
+  position: relative;
+  z-index: 2;
+  overflow-x: clip;
+}

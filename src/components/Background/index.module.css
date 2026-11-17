@@ -1,0 +1,87 @@
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(ellipse 100% 70% at 50% -10%, #0e1530 0%, var(--bg) 60%);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  will-change: transform;
+}
+
+.b1 {
+  width: 560px;
+  height: 560px;
+  top: -140px;
+  left: -120px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.5), transparent 70%);
+  animation: drift1 22s ease-in-out infinite alternate;
+}
+
+.b2 {
+  width: 640px;
+  height: 640px;
+  top: 25%;
+  right: -200px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.55), transparent 70%);
+  animation: drift2 26s ease-in-out infinite alternate;
+}
+
+.b3 {
+  width: 480px;
+  height: 480px;
+  bottom: -160px;
+  left: 25%;
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.35), transparent 70%);
+  animation: drift3 30s ease-in-out infinite alternate;
+}
+
+@keyframes drift1 {
+  to {
+    transform: translate(180px, 140px) scale(1.15);
+  }
+}
+@keyframes drift2 {
+  to {
+    transform: translate(-220px, 120px) scale(0.9);
+  }
+}
+@keyframes drift3 {
+  to {
+    transform: translate(200px, -120px) scale(1.2);
+  }
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, #000 20%, transparent 78%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, #000 20%, transparent 78%);
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(5, 7, 13, 0.75) 100%);
+}
+
+@media (max-width: 700px) {
+  .blob {
+    filter: blur(60px);
+    opacity: 0.4;
+  }
+}
